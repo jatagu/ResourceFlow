@@ -13,11 +13,14 @@ tableextension 59102 JobPlanningLineTblExt extends "Job Planning Line"
             trigger OnAfterValidate()
             begin
                 ValidateJobNoExists();
+                ValidateJobTaskBelongsToJob();
             end;
         }
 
         modify("Job Task No.")
         {
+            TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
+
             trigger OnAfterValidate()
             begin
                 ValidateJobTaskBelongsToJob();

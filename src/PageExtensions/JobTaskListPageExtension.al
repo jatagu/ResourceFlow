@@ -6,6 +6,20 @@ pageextension 59102 JobTaskListPageExt extends "Job Task List"
 {
     layout
     {
+        modify("Job No.")
+        {
+            ApplicationArea = All;
+            Editable = true;
+            ToolTip = 'Specifies the project number for the task.';
+        }
+
+        modify("Job Task No.")
+        {
+            ApplicationArea = All;
+            Editable = true;
+            ToolTip = 'Specifies the task number.';
+        }
+
         addlast(Content)
         {
             field("Assigned Resource No."; Rec."Assigned Resource No.")
@@ -36,6 +50,21 @@ pageextension 59102 JobTaskListPageExt extends "Job Task List"
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies when work on this job task is planned to end.';
+            }
+        }
+    }
+
+    actions
+    {
+        addfirst(Processing)
+        {
+            action(OpenProjectTaskEntry)
+            {
+                ApplicationArea = All;
+                Caption = 'New Project Task Entry';
+                Image = New;
+                RunObject = page JobTaskListPage;
+                ToolTip = 'Opens the project task entry page where you can select an existing project and add tasks.';
             }
         }
     }
