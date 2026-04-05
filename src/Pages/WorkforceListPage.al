@@ -41,6 +41,12 @@ page 59100 WorkforceListPage
                     ToolTip = 'Specifies the default work capacity for this resource.';
                 }
 
+                field("Capacity Period"; Rec."Capacity Period")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies whether default capacity is defined per week or per month.';
+                }
+
                 field("Active in Project Planning"; Rec."Active in Project Planning")
                 {
                     ApplicationArea = All;

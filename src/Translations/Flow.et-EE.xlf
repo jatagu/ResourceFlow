@@ -66,6 +66,10 @@
         <source>Default Capacity</source>
         <target>Vaikimisi töövõimekus</target>
       </trans-unit>
+      <trans-unit id="WorkforceTblExt.CapacityPeriod" xml:space="preserve">
+        <source>Capacity Period</source>
+        <target>Töövõimekuse periood</target>
+      </trans-unit>
       <trans-unit id="WorkforceTblExt.ActiveInProjectPlanning" xml:space="preserve">
         <source>Active in Project Planning</source>
         <target>Aktiivne projektiplaneerimises</target>
@@ -89,6 +93,14 @@
       <trans-unit id="WorkforceRoleEnum.Analyst" xml:space="preserve">
         <source>Analyst</source>
         <target>Analüütik</target>
+      </trans-unit>
+      <trans-unit id="CapacityPeriodEnum.Week" xml:space="preserve">
+        <source>Week</source>
+        <target>Nädal</target>
+      </trans-unit>
+      <trans-unit id="CapacityPeriodEnum.Month" xml:space="preserve">
+        <source>Month</source>
+        <target>Kuu</target>
       </trans-unit>
     </body>
   </file>
