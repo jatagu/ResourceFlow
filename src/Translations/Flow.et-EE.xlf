@@ -58,6 +58,38 @@
         <source>Critical</source>
         <target>Kriitiline</target>
       </trans-unit>
+      <trans-unit id="WorkforceTblExt.ResourceRole" xml:space="preserve">
+        <source>Resource Role</source>
+        <target>Ressursi roll</target>
+      </trans-unit>
+      <trans-unit id="WorkforceTblExt.DefaultCapacity" xml:space="preserve">
+        <source>Default Capacity</source>
+        <target>Vaikimisi töövõimekus</target>
+      </trans-unit>
+      <trans-unit id="WorkforceTblExt.ActiveInProjectPlanning" xml:space="preserve">
+        <source>Active in Project Planning</source>
+        <target>Aktiivne projektiplaneerimises</target>
+      </trans-unit>
+      <trans-unit id="WorkforceTblExt.CostPerHour" xml:space="preserve">
+        <source>Cost per Hour</source>
+        <target>Tunnitasu</target>
+      </trans-unit>
+      <trans-unit id="WorkforceRoleEnum.Undefined" xml:space="preserve">
+        <source>Select role</source>
+        <target>Vali roll</target>
+      </trans-unit>
+      <trans-unit id="WorkforceRoleEnum.Developer" xml:space="preserve">
+        <source>Developer</source>
+        <target>Arendaja</target>
+      </trans-unit>
+      <trans-unit id="WorkforceRoleEnum.Manager" xml:space="preserve">
+        <source>Manager</source>
+        <target>Juht</target>
+      </trans-unit>
+      <trans-unit id="WorkforceRoleEnum.Analyst" xml:space="preserve">
+        <source>Analyst</source>
+        <target>Analüütik</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
