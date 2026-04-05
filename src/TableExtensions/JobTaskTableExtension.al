@@ -7,6 +7,14 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
 {
     fields
     {
+        modify("Job No.")
+        {
+            trigger OnAfterValidate()
+            begin
+                ValidateJobExists();
+            end;
+        }
+
         field(50000; "Assigned Resource No."; Code[20])
         {
             Caption = 'Assigned Resource No.';
@@ -67,5 +75,16 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
     begin
         if ("Planned Start Date" <> 0D) and ("Planned End Date" <> 0D) and ("Planned End Date" < "Planned Start Date") then
             Error('Planned End Date cannot be earlier than Planned Start Date.');
+    end;
+
+    local procedure ValidateJobExists()
+    var
+        JobRec: Record Job;
+    begin
+        if "Job No." = '' then
+            Error('Job No. must be specified.');
+
+        if not JobRec.Get("Job No.") then
+            Error('Job No. %1 does not exist.', "Job No.");
     end;
 }
