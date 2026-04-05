@@ -11,5 +11,5 @@ permissionset 59100 RFMasterDataPermSet
     Permissions =
         table "Job Task" = X,
         tabledata "Job Task" = RIMD,
-        tabledata Resource = R;
+        tabledata Resource = RIMD;
 }

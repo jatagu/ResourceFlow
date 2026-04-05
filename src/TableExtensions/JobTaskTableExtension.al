@@ -10,6 +10,7 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
         field(50000; "Assigned Resource No."; Code[20])
         {
             Caption = 'Assigned Resource No.';
+            DataClassification = CustomerContent;
             TableRelation = Resource."No.";
 
             trigger OnValidate()
@@ -21,22 +22,28 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
 
                 if not ResourceRec.Get("Assigned Resource No.") then
                     Error('Assigned Resource No. %1 does not exist in Resource.', "Assigned Resource No.");
+
+                if not ResourceRec."Active in Project Planning" then
+                    Error('Resource %1 is inactive and cannot be assigned to a job task.', "Assigned Resource No.");
             end;
         }
 
         field(50001; "Task Status"; Enum ResourceTaskStatusEnum)
         {
             Caption = 'Task Status';
+            DataClassification = CustomerContent;
         }
 
         field(50002; Priority; Enum ResourceTaskPriorityEnum)
         {
             Caption = 'Priority';
+            DataClassification = CustomerContent;
         }
 
         field(50003; "Planned Start Date"; Date)
         {
             Caption = 'Planned Start Date';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -47,6 +54,7 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
         field(50004; "Planned End Date"; Date)
         {
             Caption = 'Planned End Date';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
