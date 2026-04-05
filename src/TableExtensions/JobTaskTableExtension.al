@@ -15,6 +15,22 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
             end;
         }
 
+        modify("Job Task No.")
+        {
+            trigger OnAfterValidate()
+            begin
+                ValidateJobTaskNo();
+            end;
+        }
+
+        modify(Description)
+        {
+            trigger OnAfterValidate()
+            begin
+                ValidateDescription();
+            end;
+        }
+
         field(50000; "Assigned Resource No."; Code[20])
         {
             Caption = 'Assigned Resource No.';
@@ -71,10 +87,27 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
         }
     }
 
+    trigger OnBeforeInsert()
+    begin
+        ValidateRequiredJobTaskFields();
+    end;
+
+    trigger OnBeforeModify()
+    begin
+        ValidateRequiredJobTaskFields();
+    end;
+
     local procedure ValidatePlannedDates()
     begin
         if ("Planned Start Date" <> 0D) and ("Planned End Date" <> 0D) and ("Planned End Date" < "Planned Start Date") then
             Error('Planned End Date cannot be earlier than Planned Start Date.');
+    end;
+
+    local procedure ValidateRequiredJobTaskFields()
+    begin
+        ValidateJobExists();
+        ValidateJobTaskNo();
+        ValidateDescription();
     end;
 
     local procedure ValidateJobExists()
@@ -86,5 +119,17 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
 
         if not JobRec.Get("Job No.") then
             Error('Job No. %1 does not exist.', "Job No.");
+    end;
+
+    local procedure ValidateJobTaskNo()
+    begin
+        if "Job Task No." = '' then
+            Error('Job Task No. must be specified.');
+    end;
+
+    local procedure ValidateDescription()
+    begin
+        if DelChr(Description, '<>', ' ') = '' then
+            Error('Description must be specified.');
     end;
 }

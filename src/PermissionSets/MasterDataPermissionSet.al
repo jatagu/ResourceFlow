@@ -11,6 +11,8 @@ permissionset 59100 RFMasterDataPermSet
     Caption = 'ResourceFlow Master Data';
 
     Permissions =
+        table Job = X,
+        tabledata Job = RIMD,
         table "Job Task" = X,
         tabledata "Job Task" = RIMD,
         table "Job Planning Line" = X,
