@@ -1,6 +1,7 @@
 namespace ITB2204.ResourceFlow;
 
 using Microsoft.Projects.Project.Job;
+using Microsoft.Projects.Project.Planning;
 using Microsoft.Projects.Resources.Resource;
 
 permissionset 59100 RFMasterDataPermSet
@@ -11,5 +12,7 @@ permissionset 59100 RFMasterDataPermSet
     Permissions =
         table "Job Task" = X,
         tabledata "Job Task" = RIMD,
+        table "Job Planning Line" = X,
+        tabledata "Job Planning Line" = RIMD,
         tabledata Resource = RIMD;
 }

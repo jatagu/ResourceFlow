@@ -30,6 +30,13 @@ tableextension 59101 WorkforceTblExt extends Resource
             end;
         }
 
+        field(50004; "Capacity Period"; Enum CapacityPeriodEnum)
+        {
+            Caption = 'Capacity Period';
+            DataClassification = CustomerContent;
+            InitValue = Week;
+        }
+
         field(50002; "Active in Project Planning"; Boolean)
         {
             Caption = 'Active in Project Planning';
