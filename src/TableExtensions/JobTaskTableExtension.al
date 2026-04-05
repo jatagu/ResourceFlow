@@ -12,6 +12,7 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
             trigger OnAfterValidate()
             begin
                 ValidateJobExists();
+                AssignNextJobTaskNoIfNeeded();
             end;
         }
 
@@ -89,12 +90,7 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
 
     trigger OnBeforeInsert()
     begin
-        ValidateRequiredJobTaskFields();
-    end;
-
-    trigger OnBeforeModify()
-    begin
-        ValidateRequiredJobTaskFields();
+        AssignNextJobTaskNoIfNeeded();
     end;
 
     local procedure ValidatePlannedDates()
@@ -103,19 +99,12 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
             Error('Planned End Date cannot be earlier than Planned Start Date.');
     end;
 
-    local procedure ValidateRequiredJobTaskFields()
-    begin
-        ValidateJobExists();
-        ValidateJobTaskNo();
-        ValidateDescription();
-    end;
-
     local procedure ValidateJobExists()
     var
         JobRec: Record Job;
     begin
         if "Job No." = '' then
-            Error('Job No. must be specified.');
+            exit;
 
         if not JobRec.Get("Job No.") then
             Error('Job No. %1 does not exist.', "Job No.");
@@ -132,4 +121,35 @@ tableextension 59100 ResourceJobTaskTblExt extends "Job Task"
         if DelChr(Description, '<>', ' ') = '' then
             Error('Description must be specified.');
     end;
+
+    local procedure AssignNextJobTaskNoIfNeeded()
+    begin
+        if "Job No." = '' then
+            exit;
+
+        if "Job Task No." <> '' then
+            exit;
+
+        "Job Task No." := GetNextJobTaskNo("Job No.");
+    end;
+
+    local procedure GetNextJobTaskNo(JobNo: Code[20]): Code[20]
+    var
+        JobTaskRec: Record "Job Task";
+        CandidateTaskNo: Code[20];
+    begin
+        JobTaskRec.SetRange("Job No.", JobNo);
+        if not JobTaskRec.FindLast() then
+            exit('1000');
+
+        CandidateTaskNo := IncStr(JobTaskRec."Job Task No.");
+        if CandidateTaskNo = '' then
+            CandidateTaskNo := '1000';
+
+        while JobTaskRec.Get(JobNo, CandidateTaskNo) do
+            CandidateTaskNo := IncStr(CandidateTaskNo);
+
+        exit(CandidateTaskNo);
+    end;
+
 }

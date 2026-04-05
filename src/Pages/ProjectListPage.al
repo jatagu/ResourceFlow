@@ -55,4 +55,20 @@ page 59103 ProjectListPage
             }
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(ProjectTasks)
+            {
+                ApplicationArea = All;
+                Caption = 'Project Tasks';
+                Image = TaskList;
+                RunObject = page JobTaskListPage;
+                RunPageLink = "Job No." = field("No.");
+                ToolTip = 'Open task entry for the selected project.';
+            }
+        }
+    }
 }

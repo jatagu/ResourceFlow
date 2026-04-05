@@ -5,7 +5,9 @@ using Microsoft.Projects.Project.Job;
 page 59101 JobTaskListPage
 {
     ApplicationArea = All;
-    Caption = 'Job Task List';
+    Caption = 'Project Task Entry';
+    AdditionalSearchTerms = 'Job Task List,Project Task List';
+    DelayedInsert = true;
     Editable = true;
     PageType = List;
     SourceTable = "Job Task";
@@ -26,6 +28,7 @@ page 59101 JobTaskListPage
                 field("Job Task No."; Rec."Job Task No.")
                 {
                     ApplicationArea = All;
+                    Editable = false;
                     ToolTip = 'Specifies the task number.';
                 }
 
