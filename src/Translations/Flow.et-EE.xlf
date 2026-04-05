@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file datatype="xml" source-language="en-US" target-language="et-EE" original="ResourceFlow" product-name="ResourceFlow">
+    <body>
+      <trans-unit id="ResourceFlowMasterDataPermissionSet.Caption" xml:space="preserve">
+        <source>ResourceFlow Master Data</source>
+        <target>ResourceFlow põhiandmed</target>
+      </trans-unit>
+      <trans-unit id="ResourceJobTaskTableExtension.AssignedResourceNo" xml:space="preserve">
+        <source>Assigned Resource No.</source>
+        <target>Määratud ressursi nr</target>
+      </trans-unit>
+      <trans-unit id="ResourceJobTaskTableExtension.TaskStatus" xml:space="preserve">
+        <source>Task Status</source>
+        <target>Tööülesande staatus</target>
+      </trans-unit>
+      <trans-unit id="ResourceJobTaskTableExtension.Priority" xml:space="preserve">
+        <source>Priority</source>
+        <target>Prioriteet</target>
+      </trans-unit>
+      <trans-unit id="ResourceJobTaskTableExtension.PlannedStartDate" xml:space="preserve">
+        <source>Planned Start Date</source>
+        <target>Planeeritud alguskuupäev</target>
+      </trans-unit>
+      <trans-unit id="ResourceJobTaskTableExtension.PlannedEndDate" xml:space="preserve">
+        <source>Planned End Date</source>
+        <target>Planeeritud lõppkuupäev</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskStatusEnum.Open" xml:space="preserve">
+        <source>Open</source>
+        <target>Avatud</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskStatusEnum.InProgress" xml:space="preserve">
+        <source>In Progress</source>
+        <target>Töös</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskStatusEnum.Completed" xml:space="preserve">
+        <source>Completed</source>
+        <target>Lõpetatud</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskStatusEnum.Blocked" xml:space="preserve">
+        <source>Blocked</source>
+        <target>Blokeeritud</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskPriorityEnum.Low" xml:space="preserve">
+        <source>Low</source>
+        <target>Madal</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskPriorityEnum.Normal" xml:space="preserve">
+        <source>Normal</source>
+        <target>Tavaline</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskPriorityEnum.High" xml:space="preserve">
+        <source>High</source>
+        <target>Kõrge</target>
+      </trans-unit>
+      <trans-unit id="ResourceTaskPriorityEnum.Critical" xml:space="preserve">
+        <source>Critical</source>
+        <target>Kriitiline</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
