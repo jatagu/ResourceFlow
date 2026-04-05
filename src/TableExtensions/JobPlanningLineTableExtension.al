@@ -118,6 +118,19 @@ tableextension 59102 JobPlanningLineTblExt extends "Job Planning Line"
 
         if Quantity = 0 then
             exit;
+
+        if "Job No." = '' then
+            Error('Job No. must be specified before entering resource quantity.');
+
+        if "Job Task No." = '' then
+            Error('Job Task No. must be specified before entering resource quantity.');
+
+        if "No." = '' then
+            Error('Resource must be specified before entering resource quantity.');
+
+        ValidateJobNoExists();
+        ValidateJobTaskBelongsToJob();
+        ValidateResourceNo();
     end;
 
     local procedure EnsureUnitCostFromResource()
